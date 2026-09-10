@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="botBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09090B" />
+      <stop offset="50%" stop-color="#18181B" />
+      <stop offset="100%" stop-color="#27272A" />
+    </linearGradient>
+    <linearGradient id="botGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <clipPath id="botClip">
+      <circle cx="100" cy="100" r="95" />
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#botBg)" />
+  <g clip-path="url(#botClip)">
+    <!-- Cyber Grid Backing -->
+    <path d="M20 210 C 20 150, 60 145, 100 145 C 140 145, 180 150, 180 210 Z" fill="#27272A" stroke="#3F3F46" stroke-width="2" />
+    <path d="M85 145 L100 180 L115 145 Z" fill="#10B981" opacity="0.3" />
+    <!-- Neck -->
+    <rect x="88" y="118" width="24" height="30" rx="4" fill="#3F3F46" />
+    <!-- Bot Head -->
+    <rect x="65" y="55" width="70" height="68" rx="20" fill="#18181B" stroke="url(#botGlow)" stroke-width="3.5" />
+    <!-- Antennas -->
+    <line x1="100" y1="55" x2="100" y2="40" stroke="#10B981" stroke-width="3" stroke-linecap="round" />
+    <circle cx="100" cy="38" r="4" fill="#10B981" />
+    <!-- Cyber Visor -->
+    <rect x="74" y="75" width="52" height="18" rx="7" fill="#042F2E" stroke="#10B981" stroke-width="2" />
+    <ellipse cx="88" cy="84" rx="4" ry="2" fill="#34D399" />
+    <ellipse cx="112" cy="84" rx="4" ry="2" fill="#34D399" />
+    <!-- Data mouth bar -->
+    <rect x="88" y="105" width="24" height="4" rx="2" fill="#06B6D4" />
+  </g>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#botGlow)" stroke-width="4.5" opacity="0.85" />
+</svg>

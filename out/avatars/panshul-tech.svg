@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="skinGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FED7AA" />
+      <stop offset="100%" stop-color="#FDBA74" />
+    </linearGradient>
+    <clipPath id="avatarClip2">
+      <circle cx="100" cy="100" r="95" />
+    </clipPath>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad2)" />
+  <g clip-path="url(#avatarClip2)">
+    <circle cx="150" cy="50" r="60" fill="#38BDF8" opacity="0.25" />
+    <!-- Shoulders / Cyber Hoodie -->
+    <path d="M20 210 C 20 150, 60 142, 100 142 C 140 142, 180 150, 180 210 Z" fill="#1E293B" />
+    <path d="M70 146 L100 185 L130 146 Z" fill="#0EA5E9" opacity="0.3" />
+    <!-- Neck -->
+    <rect x="87" y="115" width="26" height="34" rx="6" fill="#FDBA74" />
+    <!-- Face -->
+    <ellipse cx="100" cy="94" rx="34" ry="40" fill="url(#skinGrad2)" />
+    <!-- Hair -->
+    <path d="M64 85 C 60 45, 90 40, 100 40 C 125 40, 140 50, 136 85 C 128 66, 120 58, 100 58 C 76 58, 70 70, 64 85 Z" fill="#0F172A" />
+    <!-- Eyebrows & Eyes -->
+    <path d="M76 79 Q85 75 92 79" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M108 79 Q115 75 124 79" stroke="#1E293B" stroke-width="3" stroke-linecap="round" fill="none" />
+    <circle cx="84" cy="90" r="4.5" fill="#0F172A" />
+    <circle cx="86" cy="88" r="1.5" fill="#FFFFFF" />
+    <circle cx="116" cy="90" r="4.5" fill="#0F172A" />
+    <circle cx="118" cy="88" r="1.5" fill="#FFFFFF" />
+    <!-- Smile -->
+    <path d="M90 112 Q100 122 110 112" stroke="#9A3412" stroke-width="2.8" stroke-linecap="round" fill="none" />
+    <!-- Tech Earset -->
+    <circle cx="63" cy="94" r="8" fill="#0284C7" stroke="#38BDF8" stroke-width="2" />
+    <path d="M63 94 Q70 106 80 108" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" fill="none" />
+    <circle cx="81" cy="108" r="2.5" fill="#38BDF8" />
+  </g>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#38BDF8" stroke-width="4" opacity="0.8" />
+</svg>

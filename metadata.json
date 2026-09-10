@@ -1,0 +1,6 @@
+{
+  "name": "Stoq.",
+  "description": "Autonomous inventory intelligence, optical matrix scanning, and real-time demand telemetry built for modern enterprises.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

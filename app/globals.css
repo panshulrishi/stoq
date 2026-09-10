@@ -1,0 +1,241 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@import "tw-animate-css";
+
+@theme {
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: var(--font-mono), "SFMono-Regular", Consolas, Menlo, monospace;
+}
+
+body {
+  letter-spacing: -0.012em;
+}
+
+@layer utilities {
+  /* Ultra-refined scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(161, 161, 170, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(161, 161, 170, 0.45);
+  }
+
+  /* Modern Linear / Stripe-style Glass Cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+  }
+  .dark .glass-card {
+    background: rgba(18, 18, 23, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  .glass-card-accent {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(203, 213, 225, 0.6);
+    box-shadow: 0 12px 40px -12px rgba(99, 102, 241, 0.08);
+  }
+  .dark .glass-card-accent {
+    background: linear-gradient(135deg, rgba(24, 24, 32, 0.9), rgba(15, 15, 20, 0.85));
+    backdrop-filter: blur(24px);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    box-shadow: 0 12px 40px -12px rgba(99, 102, 241, 0.25);
+  }
+
+  .glass-hud {
+    background: rgba(9, 9, 14, 0.92);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.2);
+  }
+
+  /* Phosphor glows & border pulses */
+  .glow-cyan {
+    box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.4);
+  }
+  .glow-indigo {
+    box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.4);
+  }
+  .glow-emerald {
+    box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.4);
+  }
+
+  /* ─── Mobbin Design System Primitives ─── */
+  .squircle-30 {
+    border-radius: 30%;
+  }
+
+  .btn-mobbin-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #141414;
+    color: #ffffff;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-mobbin-primary:hover {
+    background-color: #262626;
+  }
+  .btn-mobbin-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-mobbin-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    color: #141414;
+    border: 1px solid #e0e0e0;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-mobbin-outline:hover {
+    background-color: #f3f3f3;
+  }
+  .btn-mobbin-outline:active {
+    transform: scale(0.98);
+  }
+
+  .btn-mobbin-soft {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    color: #141414;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.15s ease-in-out;
+  }
+  .btn-mobbin-soft:hover {
+    background-color: #e8e8e8;
+  }
+
+  .card-mobbin {
+    background-color: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 24px;
+    box-shadow: none;
+  }
+
+  .card-mobbin-soft {
+    background-color: #f3f3f3;
+    border-radius: 24px;
+    box-shadow: none;
+  }
+
+  .input-mobbin {
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 16px;
+    color: #141414;
+    transition: box-shadow 0.15s ease;
+  }
+  .input-mobbin:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #141414;
+  }
+
+  .badge-mobbin-accent {
+    background-color: #0066ff;
+    color: #ffffff;
+    border-radius: 9999px;
+    font-weight: 600;
+  }
+
+  /* ─── Dark Mode Polarity & Surfaces ─── */
+  .dark .btn-mobbin-primary {
+    background-color: #ffffff;
+    color: #141414;
+  }
+  .dark .btn-mobbin-primary:hover {
+    background-color: #e5e5e5;
+  }
+
+  .dark .btn-mobbin-outline {
+    background-color: #141417;
+    color: #ffffff;
+    border-color: #27272a;
+  }
+  .dark .btn-mobbin-outline:hover {
+    background-color: #1f1f23;
+  }
+
+  .dark .btn-mobbin-soft {
+    background-color: #18181b;
+    color: #ffffff;
+  }
+  .dark .btn-mobbin-soft:hover {
+    background-color: #27272a;
+  }
+
+  .dark .card-mobbin {
+    background-color: #111113;
+    border-color: #1f1f23;
+  }
+
+  .dark .card-mobbin-soft {
+    background-color: #161619;
+  }
+
+  .dark .input-mobbin {
+    background-color: #18181b;
+    color: #ffffff;
+  }
+  .dark .input-mobbin:focus {
+    box-shadow: 0 0 0 2px #ffffff;
+  }
+}
+
+@keyframes scanLine {
+  0% {
+    top: 0%;
+  }
+  50% {
+    top: 92%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+.animate-scan {
+  animation: scanLine 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-area, #printable-area * {
+    visibility: visible;
+  }
+  #printable-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#3730A3" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+
+    <!-- Glowing Outer Ring -->
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#818CF8" />
+      <stop offset="50%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#38BDF8" />
+    </linearGradient>
+
+    <!-- Skin Tone Gradients -->
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDDFB8" />
+      <stop offset="100%" stop-color="#F3C395" />
+    </linearGradient>
+
+    <linearGradient id="neckShadow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DE9F6B" />
+      <stop offset="100%" stop-color="#F3C395" />
+    </linearGradient>
+
+    <!-- Hair Gradient -->
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1F2937" />
+      <stop offset="40%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#030712" />
+    </linearGradient>
+
+    <!-- Jacket Gradient -->
+    <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#312E81" />
+      <stop offset="60%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+
+    <!-- T-shirt / Hoodie Inner Gradient -->
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#4338CA" />
+    </linearGradient>
+
+    <!-- Glasses Frame Gradient -->
+    <linearGradient id="glassesGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+
+    <!-- Filter for soft ambient glow -->
+    <filter id="subtleGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <clipPath id="avatarClip">
+      <circle cx="100" cy="100" r="95" />
+    </clipPath>
+  </defs>
+
+  <!-- Background Base -->
+  <circle cx="100" cy="100" r="95" fill="url(#bgGrad)" />
+
+  <!-- Avatar Container (Clipped) -->
+  <g clip-path="url(#avatarClip)">
+    <!-- Ambient Background Light Flare -->
+    <circle cx="160" cy="40" r="65" fill="#6366F1" opacity="0.3" filter="url(#subtleGlow)" />
+    <circle cx="40" cy="160" r="50" fill="#06B6D4" opacity="0.2" filter="url(#subtleGlow)" />
+
+    <!-- Torso / Shoulders / Jacket -->
+    <path d="M25 210 C 25 155, 65 145, 100 145 C 135 145, 175 155, 175 210 Z" fill="url(#jacketGrad)" />
+
+    <!-- Jacket Collar Accents -->
+    <path d="M68 150 L84 195 L95 195 L86 148 Z" fill="#4338CA" opacity="0.6" />
+    <path d="M132 150 L116 195 L105 195 L114 148 Z" fill="#4338CA" opacity="0.6" />
+
+    <!-- T-Shirt V-Neck -->
+    <path d="M85 148 Q100 178 115 148 Z" fill="url(#shirtGrad)" />
+
+    <!-- Neck with Shadow -->
+    <rect x="88" y="115" width="24" height="35" rx="5" fill="url(#neckShadow)" />
+    <ellipse cx="100" cy="120" rx="12" ry="5" fill="#DE9F6B" opacity="0.7" />
+
+    <!-- Head / Face Base -->
+    <ellipse cx="100" cy="92" rx="35" ry="42" fill="url(#skinGrad)" />
+
+    <!-- Ears -->
+    <ellipse cx="64" cy="94" rx="7" ry="11" fill="#F3C395" />
+    <ellipse cx="65" cy="94" rx="4" ry="7" fill="#DE9F6B" opacity="0.5" />
+    <ellipse cx="136" cy="94" rx="7" ry="11" fill="#F3C395" />
+    <ellipse cx="135" cy="94" rx="4" ry="7" fill="#DE9F6B" opacity="0.5" />
+
+    <!-- Cheeks Blush -->
+    <ellipse cx="78" cy="102" rx="6" ry="3.5" fill="#F87171" opacity="0.25" />
+    <ellipse cx="122" cy="102" rx="6" ry="3.5" fill="#F87171" opacity="0.25" />
+
+    <!-- Nose -->
+    <path d="M98 94 Q100 101 103 100" stroke="#DE9F6B" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Friendly Smile -->
+    <path d="M90 110 Q100 120 110 110" stroke="#7C2D12" stroke-width="2.8" stroke-linecap="round" fill="none" />
+    <path d="M93 111 Q100 117 107 111" fill="#FFFFFF" opacity="0.9" />
+
+    <!-- Modern Designer Glasses -->
+    <!-- Left Glass -->
+    <rect x="73" y="82" width="22" height="17" rx="5" fill="#1E1B4B" fill-opacity="0.35" stroke="url(#glassesGrad)" stroke-width="2.8" />
+    <line x1="75" y1="84" x2="82" y2="84" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.7" />
+
+    <!-- Right Glass -->
+    <rect x="105" y="82" width="22" height="17" rx="5" fill="#1E1B4B" fill-opacity="0.35" stroke="url(#glassesGrad)" stroke-width="2.8" />
+    <line x1="107" y1="84" x2="114" y2="84" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" opacity="0.7" />
+
+    <!-- Glasses Bridge & Temples -->
+    <path d="M95 89 Q100 87 105 89" stroke="url(#glassesGrad)" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <line x1="73" y1="89" x2="65" y2="88" stroke="url(#glassesGrad)" stroke-width="2.5" stroke-linecap="round" />
+    <line x1="127" y1="89" x2="135" y2="88" stroke="url(#glassesGrad)" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Eyes (Behind Glasses) -->
+    <ellipse cx="84" cy="90" rx="3.5" ry="4.5" fill="#0F172A" />
+    <circle cx="85.5" cy="88.5" r="1.3" fill="#FFFFFF" />
+
+    <ellipse cx="116" cy="90" rx="3.5" ry="4.5" fill="#0F172A" />
+    <circle cx="117.5" cy="88.5" r="1.3" fill="#FFFFFF" />
+
+    <!-- Eyebrows -->
+    <path d="M74 77 Q84 73 93 78" stroke="#1F2937" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M107 78 Q116 73 126 77" stroke="#1F2937" stroke-width="3" stroke-linecap="round" fill="none" />
+
+    <!-- Stylish Hair -->
+    <path d="M63 85 C 60 55, 80 48, 100 48 C 122 48, 142 55, 137 85 C 131 73, 126 65, 100 65 C 76 65, 68 74, 63 85 Z" fill="url(#hairGrad)" />
+    <!-- Hair Volume / Quiff on Top -->
+    <path d="M68 65 C 72 45, 95 38, 115 42 C 128 45, 137 54, 132 66 C 124 53, 108 49, 90 52 C 78 54, 72 60, 68 65 Z" fill="#374151" />
+    <path d="M80 50 Q105 38 122 46" stroke="#4B5563" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6" />
+  </g>
+
+  <!-- High-Tech Neon Border Ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#ringGrad)" stroke-width="4.5" opacity="0.9" />
+</svg>

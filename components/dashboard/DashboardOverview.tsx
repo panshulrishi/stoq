@@ -140,15 +140,15 @@ export function DashboardOverview() {
             </div>
           </div>
           <div className="flex items-baseline justify-between">
-            <span className="text-3xl font-bold tracking-tight text-[#141414] dark:text-white">
+            <span className="text-3xl font-bold font-mono tracking-tight text-[#141414] dark:text-white tabular-nums">
               {totalProducts}
             </span>
-            <span className="inline-flex items-center text-[11px] font-semibold text-[#141414] dark:text-white bg-[#f3f3f3] dark:bg-[#18181b] border border-[#e0e0e0] dark:border-[#27272a] px-2.5 py-0.5 rounded-full">
+            <span className="inline-flex items-center text-[11px] font-semibold font-mono text-[#141414] dark:text-white bg-[#f3f3f3] dark:bg-[#18181b] border border-[#e0e0e0] dark:border-[#27272a] px-2.5 py-0.5 rounded-full">
               <ArrowUpRight className="w-3 h-3 mr-0.5 text-[#0066ff]" /> +12.4%
             </span>
           </div>
           <p className="text-xs text-[#707070] dark:text-[#a1a1aa] mt-3">
-            Retail: <span className="font-medium text-[#141414] dark:text-white">{companySettings.currencySymbol}{totalRetailValue.toLocaleString()}</span>
+            Retail: <span className="font-medium font-mono text-[#141414] dark:text-white">{companySettings.currencySymbol}{totalRetailValue.toLocaleString()}</span>
           </p>
         </div>
 
@@ -163,16 +163,16 @@ export function DashboardOverview() {
             </div>
           </div>
           <div className="flex items-baseline justify-between">
-            <span className="text-3xl font-bold tracking-tight text-[#141414] dark:text-white">
+            <span className="text-3xl font-bold font-mono tracking-tight text-[#141414] dark:text-white tabular-nums">
               {companySettings.currencySymbol}
               {totalInventoryValue.toLocaleString('en-US', { minimumFractionDigits: 0 })}
             </span>
-            <span className="inline-flex items-center text-[11px] font-semibold text-[#141414] dark:text-white bg-[#f3f3f3] dark:bg-[#18181b] border border-[#e0e0e0] dark:border-[#27272a] px-2.5 py-0.5 rounded-full">
+            <span className="inline-flex items-center text-[11px] font-semibold font-mono text-[#141414] dark:text-white bg-[#f3f3f3] dark:bg-[#18181b] border border-[#e0e0e0] dark:border-[#27272a] px-2.5 py-0.5 rounded-full">
               <ArrowUpRight className="w-3 h-3 mr-0.5 text-[#0066ff]" /> +8.4%
             </span>
           </div>
           <p className="text-xs text-[#707070] dark:text-[#a1a1aa] mt-3">
-            Yield: <span className="font-medium text-[#141414] dark:text-white">+{((totalRetailValue - totalInventoryValue) / (totalInventoryValue || 1) * 100).toFixed(1)}%</span>
+            Yield: <span className="font-medium font-mono text-[#141414] dark:text-white">+{((totalRetailValue - totalInventoryValue) / (totalInventoryValue || 1) * 100).toFixed(1)}%</span>
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export function DashboardOverview() {
             </div>
           </div>
           <div className="flex items-baseline justify-between">
-            <span className="text-3xl font-bold tracking-tight text-[#141414] dark:text-white">
+            <span className="text-3xl font-bold font-mono tracking-tight text-[#141414] dark:text-white tabular-nums">
               {lowStockProducts.length}
             </span>
             <button
@@ -213,16 +213,16 @@ export function DashboardOverview() {
             </div>
           </div>
           <div className="flex items-baseline justify-between">
-            <span className="text-3xl font-bold tracking-tight text-[#141414] dark:text-white">
+            <span className="text-3xl font-bold font-mono tracking-tight text-[#141414] dark:text-white tabular-nums">
               {companySettings.currencySymbol}
               {monthlyRevenue.toLocaleString('en-US', { minimumFractionDigits: 0 })}
             </span>
-            <span className="inline-flex items-center text-[11px] font-semibold text-white bg-[#0066ff] px-2.5 py-0.5 rounded-full">
+            <span className="inline-flex items-center text-[11px] font-semibold font-mono text-white bg-[#0066ff] px-2.5 py-0.5 rounded-full">
               +18%
             </span>
           </div>
           <p className="text-xs text-[#707070] dark:text-[#a1a1aa] mt-3">
-            {totalProductsSold} fulfilled items
+            <span className="font-mono">{totalProductsSold}</span> fulfilled items
           </p>
         </div>
       </div>
@@ -364,7 +364,7 @@ export function DashboardOverview() {
                     <div className="min-w-0">
                       <p className="text-xs font-semibold text-[#141414] dark:text-white truncate">{prod.name}</p>
                       <p className="text-[11px] text-[#707070] dark:text-[#a1a1aa]">
-                        Qty: <strong className="text-[#141414] dark:text-white">{prod.quantity} {prod.unit}</strong> (Min: {prod.minReorderLevel})
+                        Qty: <strong className="font-mono text-[#141414] dark:text-white font-medium">{prod.quantity} {prod.unit}</strong> (Min: <span className="font-mono">{prod.minReorderLevel}</span>)
                       </p>
                     </div>
                   </div>
@@ -402,11 +402,11 @@ export function DashboardOverview() {
               <div key={log.id} className="pt-3.5 first:pt-0 flex items-center justify-between text-xs">
                 <div>
                   <p className="font-semibold text-[#141414] dark:text-white">{log.productName}</p>
-                  <p className="text-[11px] text-[#707070] dark:text-[#a1a1aa] mt-0.5">{log.reason} • {log.timestamp}</p>
+                  <p className="text-[11px] text-[#707070] dark:text-[#a1a1aa] mt-0.5">{log.reason} • <span className="font-mono">{log.timestamp}</span></p>
                 </div>
                 <div className="text-right">
                   <span
-                    className={`font-semibold text-xs ${
+                    className={`font-semibold font-mono text-xs tabular-nums ${
                       log.quantityChange > 0 ? 'text-[#141414] dark:text-white' : 'text-rose-600 dark:text-rose-400'
                     }`}
                   >

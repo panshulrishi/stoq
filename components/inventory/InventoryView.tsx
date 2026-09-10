@@ -381,8 +381,8 @@ export function InventoryView() {
                     </td>
 
                     <td className="p-4">
-                      <div className="font-mono text-slate-800 dark:text-slate-200">{prod.sku}</div>
-                      <div className="text-[10px] text-slate-400 flex items-center gap-1 mt-0.5">
+                      <div className="font-mono text-slate-800 dark:text-slate-200 font-medium">{prod.sku}</div>
+                      <div className="text-[10px] text-slate-400 flex items-center gap-1 mt-0.5 font-mono">
                         <QrCode className="w-3 h-3 text-slate-400" />
                         <span>{prod.barcode}</span>
                       </div>
@@ -395,19 +395,19 @@ export function InventoryView() {
                     </td>
 
                     <td className="p-4">
-                      <div className="font-semibold text-slate-900 dark:text-white">
+                      <div className="font-semibold font-mono tabular-nums text-slate-900 dark:text-white">
                         {companySettings.currencySymbol}{prod.sellingPrice.toFixed(2)}
                       </div>
-                      <div className="text-[10px] text-slate-400">
+                      <div className="text-[10px] text-slate-400 font-mono">
                         Cost: {companySettings.currencySymbol}{prod.purchasePrice.toFixed(2)}
                       </div>
                     </td>
 
                     <td className="p-4">
-                      <div className="font-extrabold text-slate-900 dark:text-white">
-                        {prod.quantity} <span className="font-normal text-slate-400 text-[11px]">{prod.unit}</span>
+                      <div className="font-extrabold font-mono tabular-nums text-slate-900 dark:text-white">
+                        {prod.quantity} <span className="font-normal font-sans text-slate-400 text-[11px]">{prod.unit}</span>
                       </div>
-                      <div className="text-[10px] text-slate-400">Min: {prod.minReorderLevel}</div>
+                      <div className="text-[10px] text-slate-400 font-mono">Min: {prod.minReorderLevel}</div>
                     </td>
 
                     <td className="p-4">
@@ -424,7 +424,7 @@ export function InventoryView() {
                         >
                           <MinusCircle className="w-4 h-4" />
                         </button>
-                        <span className="font-bold text-xs px-2">{prod.quantity}</span>
+                        <span className="font-bold font-mono text-xs px-2 tabular-nums">{prod.quantity}</span>
                         <button
                           onClick={() => stockMovement(prod.id, 'STOCK_IN', 1, 'Manual Quick Stock In')}
                           className="p-1 text-slate-600 dark:text-slate-300 hover:text-emerald-600 transition"

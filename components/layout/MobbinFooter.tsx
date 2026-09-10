@@ -84,13 +84,6 @@ export function MobbinFooter() {
 
       <div className="max-w-7xl mx-auto mt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#707070]">
         <p>© 2026 {companySettings.companyName}. All rights reserved.</p>
-        <div className="flex items-center gap-6">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#262626] text-[#adadad] text-[11px] font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-            Telemetry 99.9% Active
-          </span>
-          <span className="font-mono text-[11px] text-[#adadad]">Mobbin Minimalist Edition</span>
-        </div>
       </div>
     </footer>
   );

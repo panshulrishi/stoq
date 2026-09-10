@@ -20,7 +20,6 @@ import { ReportsView } from '@/components/reports/ReportsView';
 import { AnalyticsView } from '@/components/analytics/AnalyticsView';
 import { SettingsView } from '@/components/settings/SettingsView';
 import { AIAssistantView } from '@/components/ai/AIAssistantView';
-import { MobbinFooter } from '@/components/layout/MobbinFooter';
 
 function AppContent() {
   const { currentView } = useInventory();
@@ -60,9 +59,6 @@ function AppContent() {
           {currentView === 'settings' && <SettingsView />}
           {currentView === 'ai-assistant' && <AIAssistantView />}
         </main>
-
-        {/* Mobbin Signature Inverted Baseboard Footer */}
-        <MobbinFooter />
       </div>
 
       {/* Global Modals & Notifications */}

@@ -242,11 +242,49 @@ export function InventoryProvider({ children }: { children: React.ReactNode }) {
         const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
         if (saved) {
           const parsed = JSON.parse(saved);
-          if (parsed.products) setProducts(parsed.products);
-          if (parsed.suppliers) setSuppliers(parsed.suppliers);
-          if (parsed.customers) setCustomers(parsed.customers);
-          if (parsed.purchaseOrders) setPurchaseOrders(parsed.purchaseOrders);
-          if (parsed.sales) setSales(parsed.sales);
+          if (parsed.products) {
+            const hasOldSupplierInProducts = parsed.products.some((p: Product) =>
+              p.supplierName?.includes('TechCore Wholesale Global') ||
+              p.supplierName?.includes('Artisan Roast Supply Co.') ||
+              p.supplierName?.includes('Nordic Apparel Mills') ||
+              p.supplierName?.includes('ProTool & Hardware Corp')
+            );
+            setProducts(hasOldSupplierInProducts ? INITIAL_PRODUCTS : parsed.products);
+          }
+          if (parsed.suppliers) {
+            const hasOldSuppliers = parsed.suppliers.some((s: Supplier) =>
+              s.name?.includes('TechCore Wholesale Global') ||
+              s.contactPerson?.includes('David Chen') ||
+              s.contactPerson?.includes('Elena Rostova') ||
+              (s.phone && s.phone.includes('+1 ('))
+            );
+            setSuppliers(hasOldSuppliers ? INITIAL_SUPPLIERS : parsed.suppliers);
+          }
+          if (parsed.customers) {
+            const hasOldCustomers = parsed.customers.some((c: Customer) =>
+              c.name?.includes('Sarah Jenkins') ||
+              c.name?.includes('Robert Thorne') ||
+              c.name?.includes('Emily Watson') ||
+              (c.phone && c.phone.includes('+1 ('))
+            );
+            setCustomers(hasOldCustomers ? INITIAL_CUSTOMERS : parsed.customers);
+          }
+          if (parsed.purchaseOrders) {
+            const hasOldSuppliersInPO = parsed.purchaseOrders.some((po: PurchaseOrder) =>
+              po.supplierName?.includes('TechCore Wholesale Global') ||
+              po.supplierName?.includes('Artisan Roast Supply Co.') ||
+              po.supplierName?.includes('Nordic Apparel')
+            );
+            setPurchaseOrders(hasOldSuppliersInPO ? INITIAL_PURCHASE_ORDERS : parsed.purchaseOrders);
+          }
+          if (parsed.sales) {
+            const hasOldSales = parsed.sales.some((s: Sale) =>
+              s.customerName?.includes('Urban Coffee') ||
+              s.customerName?.includes('Apex Coworking') ||
+              s.customerName?.includes('Watson Boutique')
+            );
+            setSales(hasOldSales ? INITIAL_SALES : parsed.sales);
+          }
           if (parsed.auditLogs) {
             setAuditLogs(
               parsed.auditLogs.map((log: AuditLog) => ({
@@ -258,9 +296,19 @@ export function InventoryProvider({ children }: { children: React.ReactNode }) {
           if (parsed.scanHistory) setScanHistory(parsed.scanHistory);
           if (parsed.notifications) setNotifications(parsed.notifications);
           if (parsed.companySettings) {
+            const isOldLocation =
+              !parsed.companySettings.currencySymbol ||
+              parsed.companySettings.currencySymbol === '$' ||
+              parsed.companySettings.address?.includes('San Francisco') ||
+              parsed.companySettings.taxNumber?.includes('US-TAX');
             setCompanySettings({
               ...parsed.companySettings,
               companyName: (!parsed.companySettings.companyName || parsed.companySettings.companyName.toLowerCase().includes('stockpulse')) ? 'Stoq.' : parsed.companySettings.companyName,
+              currencySymbol: isOldLocation ? '₹' : (parsed.companySettings.currencySymbol || '₹'),
+              currencyCode: isOldLocation ? 'INR' : (parsed.companySettings.currencyCode || 'INR'),
+              taxNumber: isOldLocation ? '27AABCU9603R1ZM' : parsed.companySettings.taxNumber,
+              address: isOldLocation ? 'Cyber City, DLF Phase 2, Gurugram, Haryana 122002' : parsed.companySettings.address,
+              phone: isOldLocation ? '+91 (124) 490-8800' : parsed.companySettings.phone,
               themeMode: 'dark',
             });
             if (typeof document !== 'undefined') {
